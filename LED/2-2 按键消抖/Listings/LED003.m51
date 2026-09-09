@@ -1,0 +1,109 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/09/2026  15:37:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\FOX\IDE\KEIL_5\C51\BIN\BL51.EXE .\Objects\mian.obj TO .\Objects\LED003 PRINT (.\Listings\LED003.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\mian.obj (MIAN)
+  D:\FOX\IDE\KEIL_5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\FOX\IDE\KEIL_5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\LED003 (MIAN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MIAN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     003FH     UNIT         ?PR?MAIN?MIAN
+            CODE    00CEH     0014H     UNIT         ?PR?_DELAYMS?MIAN
+            CODE    00E2H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LED003 (MIAN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MIAN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MIAN
+  +--> ?PR?_DELAYMS?MIAN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LED003 (MIAN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MIAN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00B0H.1       PUBLIC        P3_1
+  C:008FH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/09/2026  15:37:55  PAGE 2
+
+
+  C:00CEH         PUBLIC        _Delayms
+  D:0008H         PUBLIC        right_i
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        xms
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:00CEH         LINE#         3
+  C:00CEH         LINE#         4
+  C:00CEH         LINE#         6
+  C:00D2H         LINE#         7
+  C:00D2H         LINE#         9
+  C:00D4H         LINE#         10
+  C:00D6H         LINE#         12
+  C:00D6H         LINE#         13
+  C:00D8H         LINE#         14
+  C:00DAH         LINE#         15
+  C:00DFH         LINE#         16
+  C:00E1H         LINE#         18
+  -------         ENDPROC       _DELAYMS
+  -------         PROC          MAIN
+  C:008FH         LINE#         22
+  C:008FH         LINE#         23
+  C:008FH         LINE#         24
+  C:008FH         LINE#         25
+  C:008FH         LINE#         26
+  C:0092H         LINE#         27
+  C:0092H         LINE#         28
+  C:0099H         LINE#         29
+  C:009CH         LINE#         30
+  C:00A3H         LINE#         31
+  C:00A6H         LINE#         32
+  C:00B6H         LINE#         33
+  C:00BEH         LINE#         34
+  C:00C7H         LINE#         35
+  C:00C7H         LINE#         36
+  C:00CCH         LINE#         37
+  C:00CCH         LINE#         38
+  C:00CCH         LINE#         40
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MIAN
+
+Program Size: data=11.0 xdata=0 code=231
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

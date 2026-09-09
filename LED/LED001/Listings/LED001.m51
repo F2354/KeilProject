@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    08/25/2026  17:33:22  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/09/2026  14:32:24  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
-E:\IDE\KEIL5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\LED001 PRINT (.\Listings\LED001.m51) RAMSIZE (256)
+D:\FOX\IDE\KEIL_5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\LED001 PRINT (.\Listings\LED001.m51) RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -10,7 +10,7 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
-  E:\IDE\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\FOX\IDE\KEIL_5\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
 LINK MAP OF MODULE:  .\Objects\LED001 (MAIN)
@@ -21,23 +21,28 @@ LINK MAP OF MODULE:  .\Objects\LED001 (MAIN)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            IDATA   0008H     0001H     UNIT         ?STACK
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
-            CODE    000FH     0005H     UNIT         ?PR?MAIN?MAIN
+            CODE    0003H     0034H     UNIT         ?PR?MAIN?MAIN
+            CODE    0037H     000FH     UNIT         ?PR?_DELAYMS?MAIN
+            CODE    0046H     000CH     UNIT         ?C_C51STARTUP
 
 
 
 OVERLAY MAP OF MODULE:   .\Objects\LED001 (MAIN)
 
 
-SEGMENT
-  +--> CALLED SEGMENT
----------------------
-?C_C51STARTUP
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
   +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  0008H    0002H
+  +--> ?PR?_DELAYMS?MAIN
 
 
 
@@ -49,18 +54,46 @@ SYMBOL TABLE OF MODULE:  .\Objects\LED001 (MAIN)
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
-  C:000FH         PUBLIC        main
+  C:0003H         PUBLIC        main
+  C:0037H         PUBLIC        _Delayms
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        xms
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/09/2026  14:32:24  PAGE 2
+
+
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  D:0005H         SYMBOL        k
+  -------         ENDDO         
+  C:0037H         LINE#         4
+  C:0037H         LINE#         5
+  C:0037H         LINE#         8
+  C:0038H         LINE#         9
+  C:003BH         LINE#         10
+  C:003DH         LINE#         11
+  C:003FH         LINE#         13
+  C:003FH         LINE#         15
+  C:003FH         LINE#         16
+  C:0041H         LINE#         17
+  C:0043H         LINE#         18
+  C:0045H         LINE#         19
+  -------         ENDPROC       _DELAYMS
   -------         PROC          MAIN
-  C:000FH         LINE#         3
-  C:000FH         LINE#         4
-  C:000FH         LINE#         5
-  C:0012H         LINE#         6
-  C:0012H         LINE#         8
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         22
+  C:0003H         LINE#         23
+  C:0003H         LINE#         25
+  C:0003H         LINE#         27
+  C:0008H         LINE#         28
+  C:0008H         LINE#         29
+  C:000BH         LINE#         30
+  C:001BH         LINE#         31
+  C:0022H         LINE#         32
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  08/25/2026  17:33:22  PAGE 2
-
-
-Program Size: data=9.0 xdata=0 code=20
+Program Size: data=11.0 xdata=0 code=82
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
